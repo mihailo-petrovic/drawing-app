@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="container">
+      <canvas id="innerContainer"></canvas>
+
+      <div id="toolsContainer">
+        <div id="cursorDiv"></div>
+        <div id="colorDiv" class="tools">
+          <label for="colorSelect">Color:</label>
+          <input type="color" name="colorSelect" id="colorSelect" />
+        </div>
+        <div id="widthDiv" class="tools">
+          <label for="widthSelect">Width:</label>
+          <select name="widthSelect" id="widthSelect">
+            <option value="1">1</option>
+            <option value="3" selected='selected'>3</option>
+            <option value="5">5</option>
+            <option value="7">7</option>
+            <option value="9">9</option>
+            <option value="11">11</option>
+          </select>
+        </div>
+        <div id="insertImageDiv"></div>
+        <div id="saveImageDiv" class="tools">
+          <button class="btn" id="saveImageBtn">Save Image</button>
+        </div>
+        <div id="clearAllDiv" class="tools">
+          <button class="btn" id="clearAllBtn">Clear All</button>
+        </div>
+      </div>
+    </div>
+    <script type="module" src="js/main.js"></script>
+  </body>
+</html>
