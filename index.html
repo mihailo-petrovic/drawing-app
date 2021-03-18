@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>My Drawing App</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
@@ -12,7 +12,15 @@
       <canvas id="innerContainer"></canvas>
 
       <div id="toolsContainer">
-        <div id="cursorDiv"></div>
+        <div id="cursorDiv" class="tools">
+          <label for="cursorSelect">Pen:</label>
+          <select name="cursorSelect" id="cursorSelect">
+            <option value="draw">Pen</option>
+            <option value="line">Line</option>
+            <option value="rect">Rectangle</option>
+            <option value="circ">Circle</option>
+          </select>
+        </div>
         <div id="colorDiv" class="tools">
           <label for="colorSelect">Color:</label>
           <input type="color" name="colorSelect" id="colorSelect" />

@@ -20,6 +20,7 @@ var lineObj = {
 // ----- LISTENERS -----
 window.onload = () => {
   lineObj.width = widthSelect.value;
+  ctx.fillStyle = '#fff'
 };
 
 canvas.addEventListener("touchstart", setPosition);
