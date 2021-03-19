@@ -61,10 +61,9 @@ function setPosition(e) {
     pos.x = e.clientX;
     pos.y = e.clientY;
   } else if (e.touches) {
-    pos.x = e.touches[0].clientX;
-    pos.y = e.touches[0].clientY;
+    pos.x = e.changedTouches[0].clientX;
+    pos.y = e.changedTouches[0].clientY;
   }
-  return;
 }
 
 function draw(e) {
@@ -87,8 +86,7 @@ function drawLine(e) {
 
   let oldX = pos.x;
   let oldY = pos.y;
-  pos.x = e.clientX;
-  pos.y = e.clientY;
+  setPosition(e);
 
   ctx.beginPath();
   ctx.lineCap = "round";
@@ -104,8 +102,7 @@ function drawRect(e) {
 
   let oldX = pos.x;
   let oldY = pos.y;
-  pos.x = e.clientX;
-  pos.y = e.clientY;
+  setPosition(e);
   let width = pos.x - oldX;
   let height = pos.y - oldY;
 
@@ -121,12 +118,10 @@ function drawCirc(e) {
 
   let oldX = pos.x;
   let oldY = pos.y;
-  pos.x = e.clientX;
-  pos.y = e.clientY;
+  setPosition(e);
   let w = Math.abs(oldX - pos.x);
   let h = Math.abs(oldY - pos.y);
-  let radius = Math.sqrt(Math.pow(w,2) + Math.pow(h,2));
-  console.log(radius);
+  let radius = Math.sqrt(Math.pow(w, 2) + Math.pow(h, 2));
 
   ctx.beginPath();
   ctx.lineWidth = lineObj.width;
