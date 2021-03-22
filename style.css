@@ -5,6 +5,11 @@
   padding: 0;
 }
 
+#menuToggle {
+  display: none;
+  z-index: 1000;
+}
+
 #container {
   min-height: 100vh;
   position: relative;
@@ -94,4 +99,32 @@ input,
 }
 #saveImageBtn {
   background-color: green;
+}
+
+.hidden {
+  top: -100%;
+}
+
+@media screen and (max-width: 750px){
+  #menuToggle {
+    display: block;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: x-large;
+  }
+  #menuToggle:hover{
+    cursor: pointer;
+  }
+  #innerContainer {
+    height: 100vh;
+    width: 100%;
+    overflow-x: hidden;
+  }
+  #toolsContainer {
+    height: 100vh;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+  }
 }

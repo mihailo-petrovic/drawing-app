@@ -1,5 +1,7 @@
 // ----- VARIABLES -----
 let canvas = document.getElementById("innerContainer");
+const menuToggle = document.getElementById("menuToggle");
+const toolsContainer = document.getElementById("toolsContainer");
 const cursorSelect = document.getElementById("cursorSelect");
 const widthSelect = document.getElementById("widthSelect");
 const colorSelect = document.getElementById("colorSelect");
@@ -28,6 +30,16 @@ window.onload = () => {
   ctx.fillRect(0, 0, ctx.canvas.width, ctx.canvas.height);
   drawListeners();
 };
+
+menuToggle.addEventListener("click", () => {
+  if(toolsContainer.classList.contains("hidden")){
+    toolsContainer.classList.remove("hidden");
+    menuToggle.innerHTML = '&#10006;';
+  } else {
+    toolsContainer.classList.add("hidden");
+    menuToggle.innerHTML = '&#9776;';
+  }
+})
 
 cursorSelect.addEventListener("change", () => {
   removeListeners();
