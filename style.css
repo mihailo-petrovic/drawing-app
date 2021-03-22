@@ -105,7 +105,7 @@ input,
   top: -100%;
 }
 
-@media screen and (max-width: 750px){
+@media screen and (max-width: 750px) {
   #menuToggle {
     display: block;
     position: absolute;
@@ -113,7 +113,7 @@ input,
     right: 20px;
     font-size: x-large;
   }
-  #menuToggle:hover{
+  #menuToggle:hover {
     cursor: pointer;
   }
   #innerContainer {

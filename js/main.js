@@ -32,14 +32,14 @@ window.onload = () => {
 };
 
 menuToggle.addEventListener("click", () => {
-  if(toolsContainer.classList.contains("hidden")){
+  if (toolsContainer.classList.contains("hidden")) {
     toolsContainer.classList.remove("hidden");
-    menuToggle.innerHTML = '&#10006;';
+    menuToggle.innerHTML = "&#10006;";
   } else {
     toolsContainer.classList.add("hidden");
-    menuToggle.innerHTML = '&#9776;';
+    menuToggle.innerHTML = "&#9776;";
   }
-})
+});
 
 cursorSelect.addEventListener("change", () => {
   removeListeners();
