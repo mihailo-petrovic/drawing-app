@@ -10,10 +10,8 @@
   <body>
     <div id="container">
       <canvas id="innerContainer"></canvas>
-
       <div id="toolsContainer">
         <div id="cursorDiv" class="tools">
-          <label for="cursorSelect">Pen:</label>
           <select name="cursorSelect" id="cursorSelect">
             <option value="draw">Pen</option>
             <option value="line">Line</option>
@@ -22,21 +20,28 @@
           </select>
         </div>
         <div id="colorDiv" class="tools">
-          <label for="colorSelect">Color:</label>
+          <label for="colorSelect"><h4 id="borderTitle">Line</h4></label>
           <input type="color" name="colorSelect" id="colorSelect" />
         </div>
         <div id="widthDiv" class="tools">
-          <label for="widthSelect">Width:</label>
           <select name="widthSelect" id="widthSelect">
             <option value="1">1</option>
-            <option value="3" selected='selected'>3</option>
+            <option value="3" selected="selected">3</option>
             <option value="5">5</option>
             <option value="7">7</option>
             <option value="9">9</option>
             <option value="11">11</option>
           </select>
         </div>
-        <div id="insertImageDiv"></div>
+        <div id="fillDiv" class="tools">
+          <label for="fillSelect"><h4 id="fillTitle">Fill</h4></label>
+          <input
+            type="color"
+            name="fillSelect"
+            id="fillSelect"
+            value="#ffffff"
+          />
+        </div>
         <div id="saveImageDiv" class="tools">
           <button class="btn" id="saveImageBtn">Save Image</button>
         </div>

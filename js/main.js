@@ -3,6 +3,7 @@ let canvas = document.getElementById("innerContainer");
 const cursorSelect = document.getElementById("cursorSelect");
 const widthSelect = document.getElementById("widthSelect");
 const colorSelect = document.getElementById("colorSelect");
+const fillSelect = document.getElementById("fillSelect");
 const clearAllBtn = document.getElementById("clearAllBtn");
 const saveImageBtn = document.getElementById("saveImageBtn");
 
@@ -13,6 +14,7 @@ ctx.canvas.height = canvas.clientHeight;
 var pos = { x: 0, y: 0 };
 var flag = false;
 
+var fillC = "#fff";
 var lineObj = {
   width: 1,
   color: "#000",
@@ -21,7 +23,8 @@ var lineObj = {
 // ----- LISTENERS -----
 window.onload = () => {
   lineObj.width = widthSelect.value;
-  ctx.fillStyle = "#fff";
+  lineObj.color = colorSelect.value;
+  ctx.fillStyle = fillSelect.value;
   ctx.fillRect(0, 0, ctx.canvas.width, ctx.canvas.height);
   drawListeners();
 };
@@ -49,20 +52,25 @@ widthSelect.addEventListener("change", (e) => {
 colorSelect.addEventListener("change", (e) => {
   lineObj.color = e.target.value;
 });
+fillSelect.addEventListener("change", (e) => {
+  fillC = e.target.value;
+});
 
 saveImageBtn.addEventListener("click", saveImage);
 clearAllBtn.addEventListener("click", clearAll);
 
 // ----- FUNCTIONS -----
 function setPosition(e) {
-  e.preventDefault();
-  flag = true;
-  if (e.clientX) {
-    pos.x = e.clientX;
-    pos.y = e.clientY;
-  } else if (e.touches) {
-    pos.x = e.changedTouches[0].clientX;
-    pos.y = e.changedTouches[0].clientY;
+  if (e.cancelable) {
+    e.preventDefault();
+    flag = true;
+    if (e.clientX) {
+      pos.x = e.clientX;
+      pos.y = e.clientY;
+    } else if (e.touches) {
+      pos.x = e.changedTouches[0].clientX;
+      pos.y = e.changedTouches[0].clientY;
+    }
   }
 }
 
@@ -109,7 +117,9 @@ function drawRect(e) {
   ctx.beginPath();
   ctx.lineWidth = lineObj.width;
   ctx.strokeStyle = lineObj.color;
+  ctx.fillStyle = fillC;
   ctx.rect(oldX, oldY, width, height);
+  ctx.fillRect(oldX, oldY, width, height);
   ctx.stroke();
 }
 
@@ -126,8 +136,10 @@ function drawCirc(e) {
   ctx.beginPath();
   ctx.lineWidth = lineObj.width;
   ctx.strokeStyle = lineObj.color;
+  ctx.fillStyle = fillC;
   ctx.arc(oldX, oldY, radius, 0, 2 * Math.PI);
   ctx.stroke();
+  ctx.fill();
 }
 
 function removeFlag() {

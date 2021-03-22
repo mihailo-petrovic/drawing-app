@@ -3,25 +3,22 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  overflow: hidden;
 }
 
 #container {
-  height: 100vh;
+  min-height: 100vh;
   position: relative;
 }
 
 #toolsContainer {
-  height: 110px;
+  min-height: 110px;
   width: 100%;
-  background-color: rgb(197, 197, 197);
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
+  background-color: rgb(177, 177, 177);
+  overflow: hidden;
 }
 
 #innerContainer {
-  height: calc(100% - 113px);
+  height: calc(100vh - 110px);
   width: 100%;
   border: 3px solid steelblue;
   display: block;
@@ -31,30 +28,59 @@
 }
 
 .tools {
+  float: left;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  width: 70px;
+  margin: 15px 30px;
+  width: 65px;
   height: 60px;
 }
-.tools input:hover, select:hover {
+.tools input:hover,
+select:hover {
   cursor: pointer;
 }
 
-#colorSelect {
+select,
+input,
+.btn {
+  height: 50px;
+  width: 100%;
+  border: none;
+  border-radius: 8px;
+}
+
+#colorDiv,
+#fillDiv {
+  position: relative;
+}
+#fillTitle {
+  position: absolute;
+  left: 5px;
+  top: 15px;
+}
+#borderTitle {
+  color: white;
+  position: absolute;
+  left: 5px;
+  top: 15px;
+}
+
+#colorSelect,
+#fillSelect {
   -webkit-appearance: none;
   border: none;
-  width: 60px;
-  height: 20px;
 }
-#colorSelect::-webkit-color-swatch-wrapper {
+#colorSelect::-webkit-color-swatch-wrapper,
+#fillSelect::-webkit-color-swatch-wrapper {
   padding: 0;
 }
-#colorSelect::-webkit-color-swatch {
+#colorSelect::-webkit-color-swatch,
+#fillSelect::-webkit-color-swatch {
   border: none;
 }
 
-.btn{
+.btn {
   display: block;
   border: none;
   background-color: rgb(224, 48, 48);
@@ -62,11 +88,10 @@
   padding: 0 10px;
   font-size: 15px;
   cursor: pointer;
-  height: 50px;
 }
-.btn:hover{
+.btn:hover {
   cursor: pointer;
 }
-#saveImageBtn{
+#saveImageBtn {
   background-color: green;
 }
