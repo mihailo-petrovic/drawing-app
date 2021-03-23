@@ -43,6 +43,8 @@ menuToggle.addEventListener("click", () => {
 
 cursorSelect.addEventListener("change", () => {
   removeListeners();
+  lineObj.width = widthSelect.value;
+  lineObj.color = colorSelect.value;
   switch (cursorSelect.value) {
     case "draw":
       drawListeners();
@@ -55,6 +57,9 @@ cursorSelect.addEventListener("change", () => {
       break;
     case "circ":
       circListeners();
+      break;
+    case "eras":
+      drawListeners();
       break;
   }
 });
@@ -88,6 +93,11 @@ function setPosition(e) {
 
 function draw(e) {
   if (flag == false) return;
+
+  if(cursorSelect.value == 'eras'){
+    lineObj.color = '#ffffff';
+    lineObj.width = 20;
+  }
 
   ctx.beginPath();
 
