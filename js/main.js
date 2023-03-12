@@ -1,4 +1,3 @@
-
 // ----- VARIABLES -----
 let canvas = document.getElementById("innerContainer");
 const menuToggle = document.getElementById("menuToggle");
@@ -22,7 +21,6 @@ var lineObj = {
   width: 1,
   color: "#000",
 };
-
 
 // ----- LISTENERS -----
 window.onload = () => {
